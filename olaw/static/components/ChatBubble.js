@@ -139,6 +139,7 @@ export class ChatBubble extends HTMLElement {
    */
   renderSourcesBubble = () => {
     let sourcesText = "";
+    let highestSourceCount = 0;
 
     for (const searchTarget of state.availableSearchTargets) {
       if (!state.searchResults[searchTarget]) {
@@ -158,10 +159,14 @@ export class ChatBubble extends HTMLElement {
         `;
       }
 
-      this.innerHTML = /*html*/ `
-      <p class="actor">Source: <span>${searchTarget}</span></p>
-      ${sourcesText ? sourcesText : "No results"}
-      `;
+      const currentSourceCount = state.searchResults[searchTarget].length;
+      if (currentSourceCount >= highestSourceCount) {
+        this.innerHTML = /*html*/ `
+        <p class="actor">Source: <span>${searchTarget}</span></p>
+        ${sourcesText ? sourcesText : "No results"}
+        `;
+        highestSourceCount = currentSourceCount;
+      }
     }
   };
 

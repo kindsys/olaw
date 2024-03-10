@@ -316,7 +316,7 @@ This section of the documentation describes the process of making OLAW understan
 <details>
 <summary><strong>1. Declare a new search target</strong></summary>
 
-Edit the [`SEARCH_TARGETS`](/olaw/search_targets/__init__.py) list under [`olaw/search_results/__init__.py`](/olaw/search_targets/__init__.py) to declare a new search target. 
+Edit the [`SEARCH_TARGETS`](/olaw/search_targets/__init__.py) list under [`olaw/search_targets/__init__.py`](/olaw/search_targets/__init__.py) to declare a new search target. 
 
 Lets call this new target `casedotlaw`.
 

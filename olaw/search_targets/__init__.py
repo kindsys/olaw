@@ -1,4 +1,4 @@
-SEARCH_TARGETS = ["courtlistener"]
+SEARCH_TARGETS = ["courtlistener", "openlaws"]
 """
     List of of "tools" this RAG pipeline can use to pull information from.
     See details in `README.md` under "Adding new tools".
@@ -24,6 +24,7 @@ class SearchTarget:
 
 
 from .courtlistener import CourtListener  # noqa
+from .openlaws import OpenLaws
 
 
 def route_search(search_target: str, search_statement: str):
@@ -37,5 +38,7 @@ def route_search(search_target: str, search_statement: str):
 
     if search_target == "courtlistener":
         search_results = CourtListener.search(search_statement)
+    elif search_target == "openlaws":
+        search_results = OpenLaws.search(search_statement)
 
     return search_results
